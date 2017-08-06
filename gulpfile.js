@@ -18,14 +18,7 @@ var paths = {
 	dist_fonts: 'dist/fonts'
 };
 
-var watchedBrowserify = watchify(browserify({
-	basedir: '.',
-	debug: true,
-	entries: ['index.ts'],
-	transform: [ngAnnotate],
-	cache: {},
-	packageCache: {}
-}).plugin(tsify));
+var watchedBrowserify = watchify(getBrowserify());
 
 gulp.task('copy-html', function () {
 	return gulp.src(paths.pages)
@@ -43,6 +36,24 @@ gulp.task('copy-css', function() {
 	
 	return merge(scssStream).pipe(concat('styles.css')).pipe(gulp.dest(paths.dist_css));
 });
+
+gulp.task('build', ['copy-html', 'copy-css'], function() {
+	getBrowserify()
+		.bundle()
+		.pipe(source('bundle.js'))
+		.pipe(gulp.dest(paths.dist));
+});
+
+function getBrowserify() {
+	return browserify({
+		basedir: '.',
+		debug: true,
+		entries: ['index.ts'],
+		transform: [ngAnnotate],
+		cache: {},
+		packageCache: {}
+	}).plugin(tsify);
+}
 
 function bundle() {
 	return watchedBrowserify
