@@ -1,0 +1,40 @@
+{
+	"name": "pizza-rating",
+	"version": "1.0.0",
+	"description": "Pizza Rating Web App powered by Angular 1 and TypeScript",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/LouisWayne/pizza-rating.git"
+	},
+	"author": "LouisWayne",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/LouisWayne/pizza-rating/issues"
+	},
+	"homepage": "https://github.com/LouisWayne/pizza-rating#readme",
+	"dependencies": {
+		"@types/angular-ui-router": "^1.1.37",
+		"@types/angular": "^1.5.6",
+		"@uirouter/angularjs": "^1.0.5",
+		"angular": "^1.6.5",
+		"bootstrap": "^3.3.7",
+		"browserify-ngannotate": "^2.0.0",
+		"browserify": "^14.4.0",
+		"express": "^4.15.3",
+		"gulp-concat": "^2.6.1",
+		"gulp-sass": "^3.1.0",
+		"gulp-typescript": "^3.2.1",
+		"gulp-util": "^3.0.8",
+		"gulp": "^3.9.1",
+		"jquery": "^3.2.1",
+		"merge-stream": "^1.0.1",
+		"tsify": "^3.0.1",
+		"typescript": "^2.4.2",
+		"vinyl-source-stream": "^1.1.0",
+		"watchify": "^3.9.0"
+	}
+}

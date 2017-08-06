@@ -1,0 +1,45 @@
+<div id="pizza-store">
+	<!-- STORE LIST -->
+	<div class="col-sm-3">
+		<div class="list-group">
+			<a href="#" class="pizza-store-list list-group-item" 
+						ng-class="{'active': vm.selectedStore == pizzaStore}"
+						ng-repeat="pizzaStore in vm.storeList track by $index"
+						ng-click="vm.loadStore(pizzaStore)">
+				<h4 class="list-group-item-heading" ng-bind="pizzaStore.storeName"></h4>
+			</a>
+		</div>
+	</div>
+
+	<!-- PIZZA RATING -->
+	<div class="col-sm-8">
+		<div class="jumbotron" ng-hide="vm.selectedStore">
+			<h1>Pizza Rating System</h1>
+			<p>Powered by <a href="https://angularjs.org/" target="_blank">AngularJS</a> and <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a></p>
+			<p>All source code is available at <a href="https://github.com/LouisWayne/pizza-rating" target="_blank">GitHub</a></p>
+		</div>
+
+		<div class="panel panel-info" ng-show="vm.selectedStore">
+			<div class="panel-heading pizza-store-heading">
+				<span ng-bind="vm.selectedStore.getStoreName()"></span>
+				<a ng-href="{{vm.selectedStore.websiteAddress}}" class="pull-right" ng-show="vm.selectedStore.websiteAddress" target="_blank">[SITE]</a>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<pizza-rating class="col-sm-6" 
+									ng-repeat="pizzaRating in vm.selectedStore.pizzaRatings track by $index"
+									rating="pizzaRating"
+									save-fn="vm.saveChanges"
+									delete-fn="vm.deletePizzaRating" />
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<button type="button" class="btn btn-primary pull-right" ng-click="vm.addPizzaRating()">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

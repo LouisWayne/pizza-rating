@@ -1,0 +1,33 @@
+.pizza-rating-panel {
+	margin-bottom: 8px;
+}
+
+.pizza-rating-name {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.pizza-rating-input {
+	height: 26px;
+}
+
+.pizza-rating-star {
+	font-size: 20px;
+	margin-top: 2px;
+	cursor: pointer;
+}
+
+.pizza-rating-memo {
+	height: 44px;
+
+	span {
+		font-size: 14px;
+		font-style: italic;
+	}
+}
+
+.pizza-rating-buttons {
+	position: absolute;
+	bottom: 8px;
+	right: 15px;
+}

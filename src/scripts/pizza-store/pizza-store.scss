@@ -1,0 +1,15 @@
+#pizza-store {
+	.pizza-store-list {
+		cursor: pointer;
+	}
+
+	.pizza-store-heading {
+		span {
+			font-size: 24px;
+			font-weight: bold;
+		}
+		a {
+			font-size: 12px;
+		}
+	}
+}

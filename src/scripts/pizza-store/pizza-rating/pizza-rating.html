@@ -1,0 +1,46 @@
+<div class="pizza-rating">
+	<div class="panel panel-default pizza-rating-panel">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-sm-7">
+					<span class="pizza-rating-name" 
+							ng-bind="vm.rating.pizzaName" 
+							ng-show="!vm.isEditMode"></span>
+					<input type="text" class="form-control pizza-rating-input" placeholder="Pizza Name..." 
+								ng-model="vm.rating.pizzaName"
+								ng-show="vm.isEditMode">
+				</div>
+				<div class="col-sm-5">
+					<span class="pizza-rating-star glyphicon" 
+							ng-repeat="i in vm.maxRating track by $index"
+							ng-class="{'glyphicon-star': vm.isShowStar($index + 1), 'glyphicon-star-empty': !vm.isShowStar($index + 1)}"
+							ng-mouseenter="vm.hoverRating($index + 1, true)"
+							ng-mouseleave="vm.hoverRating($index + 1, false)"
+							ng-click="vm.updateRating($index + 1)"
+							aria-hidden="true"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 text-center pizza-rating-memo">
+					<span ng-bind="vm.rating.getUserMemo()"
+							ng-show="!vm.isEditMode"></span>
+					<input type="text" class="form-control pizza-rating-input" placeholder="Memo..." 
+								ng-model="vm.rating.userMemo"
+								ng-show="vm.isEditMode">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- BUTTONS -->
+	<div class="pizza-rating-buttons">
+		<div class="btn-group btn-group-xs pull-right" role="group">
+			<button type="button" class="btn btn-success btn-xs" ng-show="vm.isEditMode" ng-click="vm.saveChanges(false)">Save</button>
+			<button type="button" class="btn btn-danger btn-xs" ng-show="vm.isDeleteMode" ng-click="vm.deleteRating(vm.rating)">Yes</button>
+			<button type="button" class="btn btn-default btn-xs" ng-show="vm.isEditMode || vm.isDeleteMode" ng-click="vm.exitAllModes(false)">Cancel</button>
+			<button type="button" class="btn btn-default btn-xs" ng-show="!vm.isEditMode && !vm.isDeleteMode" ng-click="vm.enterEditMode()">Edit</button>
+			<button type="button" class="btn btn-default btn-xs" ng-show="!vm.isEditMode && !vm.isDeleteMode" ng-click="vm.enterDeleteMode()">Delete</button>
+		</div>
+	</div>
+
+</div>
